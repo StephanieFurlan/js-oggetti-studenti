@@ -36,7 +36,7 @@ $(document).ready(function() {
       $("#ex-1").show();
       $("#ex-2").hide();
       $("#ex-3").hide();
-      $("#message").hide();
+
       changeExercise($(this));
 
       // display a student
@@ -47,7 +47,7 @@ $(document).ready(function() {
       $("#ex-2").show();
       $("#ex-1").hide();
       $("#ex-3").hide();
-      $("#message").hide();
+
       changeExercise($(this));
 
       $("#info").empty();
@@ -65,20 +65,27 @@ $(document).ready(function() {
       $("#message").hide();
       changeExercise($(this));
 
-      var student = {};
-      $("#add").click(function() {
+
+      $("#add").on("click", function() {
          $("#info").empty();
          var firstname = $("#firstname").val();
          var lastname = $("#lastname").val();
          var age = parseInt($("#age").val());
          //maek new student
-         newStudent = {
+         var newStudent = {
             firstname: firstname,
             lastname: lastname,
             age: age
          }
+
+         // newStudent.firstname = firstname;
+         // newStudent.lastname = lastname;
+         // newStudent.age = age;
          //add student to list
+
          students.push(newStudent);
+         // if (firstname != "" && lastname != ""  )
+         console.log("ciao");
 
          //clear inputs
          $("#firstname").val("");
@@ -100,7 +107,7 @@ $(document).ready(function() {
 
    function displayStudent() {
       var student = students[0];
-      $("#ex-1 ul").text("");
+      $("#ex-1 ul").empty();
       for(var key in student) {
          $("#ex-1 ul").append("<li><b>" + key.toUpperCase() + "</b>: " + student[key] + "</li>");
       }
