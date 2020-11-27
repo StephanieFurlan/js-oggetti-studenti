@@ -1,9 +1,6 @@
 $(document).ready(function() {
-   // jsnack 1 (oggetti)
-   // Creare un array di oggetti:
-   // Ogni oggetto descriverà una bici da corsa con le seguenti proprietà: nome e peso.
-   // Stampare a schermo la bici con peso minore
 
+   // array di studenti
    var students = [
       {
          firstname: "Jimmy",
@@ -32,34 +29,80 @@ $(document).ready(function() {
       }
    ]
 
+   // first display one student
+   displayStudent();
 
-   var student = students[0];
-   for(var key in student) {
-      console.log(key);
+   $("#ex-1-link").click(function() {
+      $("#ex-1").show();
+      $("#ex-2").hide();
+      $("#ex-3").hide();
+      $("#message").hide();
+      changeExercise($(this));
+
+      // display a student
+      displayStudent();
+   });
+
+   $("#ex-2-link").click(function() {
+      $("#ex-2").show();
+      $("#ex-1").hide();
+      $("#ex-3").hide();
+      $("#message").hide();
+      changeExercise($(this));
+
+      $("#info").empty();
+      // Ciclare su tutti gli studenti e stampare per ognuno nome e cognome
+      for(var i = 0; i < students.length; i++) {
+         var currentStudent = students[i];
+         $("#info").append("<div>Student " + (i + 1) + " --> " + currentStudent.firstname + " " + currentStudent.lastname + "</div>");
+      }
+   });
+
+   $("#ex-3-link").click(function() {
+      $("#ex-1").hide();
+      $("#ex-2").hide();
+      $("#ex-3").show();
+      $("#message").hide();
+      changeExercise($(this));
+
+      var student = {};
+      $("#add").click(function() {
+         $("#info").empty();
+         var firstname = $("#firstname").val();
+         var lastname = $("#lastname").val();
+         var age = parseInt($("#age").val());
+         //maek new student
+         newStudent = {
+            firstname: firstname,
+            lastname: lastname,
+            age: age
+         }
+         //add student to list
+         students.push(newStudent);
+
+         //clear inputs
+         $("#firstname").val("");
+         $("#lastname").val("");
+         $("#age").val("");
+         //show message
+         $("#message").show();
+         console.log(newStudent);
+      });
+   });
+
+
+
+   function changeExercise(tab) {
+      var act = $(".active");
+      act.removeClass("active");
+      tab.addClass("active");
    }
 
-   // stampare i nomi e i cognomi degli studenti
-   for(var i = 0; i < students.length; i++) {
-      var currentStudent = students[i];
-      console.log(currentStudent.firstname);
-      console.log(currentStudent.lastname);
+   function displayStudent() {
+      var student = students[0];
+      $("#ex-1 ul").text("");
+      for(var key in student) {
+         $("#ex-1 ul").append("<li><b>" + key.toUpperCase() + "</b>: " + student[key] + "</li>");
+      }
    }
-
-   var firstname = prompt("Write a name:");
-   var lastname = prompt("Write a surname:");
-   var age = parseInt(prompt("Write an age:"));
-
-   var newStudent = {
-      firstname: firstname,
-      lastname: lastname,
-      age: age
-   }
-
-   students.push(newStudent);
-   console.log(students);
-
-
-
-   $("h1").text("Bici: "  );
-   $("h2").text("Peso: "  );
 });

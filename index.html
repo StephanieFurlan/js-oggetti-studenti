@@ -2,15 +2,53 @@
 <html lang="en" dir="ltr">
    <head>
       <meta charset="utf-8">
-      <title>Snack 1</title>
+      <title>JS Object Students</title>
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="style.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    </head>
    <body>
-      <h1></h1>
-      <h2></h2>
+      <div class="ex-container">
+         <header>
+            <div class="pagination">
+              <a id="ex-1-link" href="#" class="active">Exercise 1</a>
+              <a id="ex-2-link" href="#" >Exercise 2</a>
+              <a id="ex-3-link" href="#">Exercise 3 </a>
+            </div>
+            <div id="ex-1" class="active ex-box">
+               <h2>Student's info</h2>
+               <ul></ul>
+            </div>
+            <div id="ex-2" class="active ex-box">
+               <h2>All students</h2>
+               <div id="info"></div>
+            </div>
+            <div id="ex-3" class="active ex-box">
+               <div class="clearfix">
+                  <div id="inputs">
+                     <h2>Add new student</h2>
+                     <label for="fname">First name:</label>
+                     <input type="text" id="firstname" name="fname"><br><br>
+                     <label for="lname">Last name:</label>
+                     <input type="text" id="lastname" name="lname"><br><br>
+                     <label for="age">Age:</label>
+                     <input type="number" id="age" name="age"><br><br>
+                     <a href="#" id="add">+Add</a>
+                  </div>
+                  <div id="message">
+                     <h3>Student successfully added!</h3>
+                  </div>
+               </div>
+
+
+            </div>
+         </header>
+      </div>
       <script src="js/script.js" charset="utf-8"></script>
    </body>
 </html>
