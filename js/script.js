@@ -65,36 +65,29 @@ $(document).ready(function() {
       $("#message").hide();
       changeExercise($(this));
 
+   });
 
-      $("#add").on("click", function() {
-         $("#info").empty();
-         var firstname = $("#firstname").val();
-         var lastname = $("#lastname").val();
-         var age = parseInt($("#age").val());
-         //maek new student
-         var newStudent = {
-            firstname: firstname,
-            lastname: lastname,
-            age: age
-         }
+   $("#add").click(function() {
+      $("#info").empty();
+      var firstname = $("#firstname").val();
+      var lastname = $("#lastname").val();
+      var age = parseInt($("#age").val());
+      //maek new student
+      var newStudent = {
+         firstname: firstname,
+         lastname: lastname,
+         age: age
+      }
 
-         // newStudent.firstname = firstname;
-         // newStudent.lastname = lastname;
-         // newStudent.age = age;
-         //add student to list
+      students.push(newStudent);
 
-         students.push(newStudent);
-         // if (firstname != "" && lastname != ""  )
-         console.log("ciao");
 
-         //clear inputs
-         $("#firstname").val("");
-         $("#lastname").val("");
-         $("#age").val("");
-         //show message
-         $("#message").show();
-         console.log(newStudent);
-      });
+      //clear inputs
+      $("#firstname").val("");
+      $("#lastname").val("");
+      $("#age").val("");
+      //show message
+      $("#message").show();
    });
 
 
